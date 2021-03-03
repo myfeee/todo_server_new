@@ -1,0 +1,53 @@
+@import 'stylesnull.scss';
+
+.wrapper {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  color: red;
+  font-size: 2.5rem;
+}
+
+.container {
+  width: 800px;
+  margin: 0px auto;
+  padding-top: 100px;
+}
+
+.work-space {
+  border: 1px dashed red;
+  min-height: 500px;
+  padding: 20px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__create {
+  }
+
+  &__input {
+    width: 80%;
+    font-size: 2rem;
+    padding: 0 0 0 10px;
+  }
+
+  &__add {
+    width: 18%;
+    font-size: 2rem;
+    color: red;
+    border-radius: 15px;
+    background-color: black;
+    border: 1px solid red;
+  }
+
+  &__list {
+    margin-top: 20px;
+  }
+}
+.item {
+  border: 1px solid red;
+  margin: 0 0 10px 0;
+  padding: 5px;
+  cursor: pointer;
+}
