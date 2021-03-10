@@ -15,9 +15,7 @@ function createTodoItem(text) {
     method: 'POST',
     headers: {},
     body: JSON.stringify(item),
-  })
-    .then((res) => res.json())
-    .then((data) => todoCreateList(data));
+  }).then(requestTodoList());
 }
 
 //! Получение списка дел
@@ -39,14 +37,16 @@ $todoInput.addEventListener('keydown', (event) => {
 $todoList.addEventListener('click', (event) => {
   fetch(`http://localhost:3000/:${event.target.dataset.item}`, {
     method: 'DELETE',
-  })
-    .then((res) => res.json())
-    .then((data) => todoCreateList(data));
+  }).then(
+    setTimeout(() => {
+      requestTodoList();
+    }, 10)
+  );
 });
 
 function todoCreateList(items) {
   $todoList.innerHTML = '';
   for (let i = 0; i < items.length; i++) {
-    $todoList.innerHTML += `<li class='item' data-item='${i}'>${items[i].value}</li>`;
+    $todoList.innerHTML += `<li class='item' data-item='${items[i]._id}'>${items[i].value}</li>`;
   }
 }

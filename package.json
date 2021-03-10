@@ -1,6 +1,6 @@
 {
   "name": "todo_server_new",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config  ./build/webpack.dev.conf.js",
@@ -37,7 +37,16 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.6.4"
   },
-  "description": "test create todo with server"
+  "description": "test create todo with server",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myfeee/todo_server_new.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myfeee/todo_server_new/issues"
+  },
+  "homepage": "https://github.com/myfeee/todo_server_new#readme"
 }
