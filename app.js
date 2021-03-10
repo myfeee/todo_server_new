@@ -25,13 +25,23 @@ app.use((req, res, next) => {
   next();
 });
 
-//! Получение дел на сервере методом GET
+//! Обработка дел на сервере методом GET
 app.get('/', (req, res) => {
   const collection = req.app.locals.collection;
   collection.find({}).toArray((err, items) => {
     if (err) return console.log(err);
     items = JSON.stringify(items);
     res.end(items);
+  });
+});
+//! Обработка последнего дела на сервере GET
+app.get('/last', (req, res) => {
+  const collection = req.app.locals.collection;
+  collection.find({}).toArray((err, items) => {
+    if (err) return console.log(err);
+    let item = items[items.length - 1];
+    item = JSON.stringify(item);
+    res.end(item);
   });
 });
 
@@ -47,6 +57,7 @@ app.post('/', (req, res) => {
   req.on('end', () => {
     collection.insertOne(body, (err, result) => {
       if (err) return console.log(err);
+
       res.end('successfully...');
     });
   });
